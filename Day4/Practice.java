@@ -66,7 +66,7 @@ public class Practice {
 
     //Make a function to print the table of a given number n.
     public static void printTable(int n) {
-        for(int i=1; i<=n ; i++) {
+        for(int i=1; i<=10 ; i++) {
             System.out.println(n+" * "+i+" = "+n*i);
         }
         return;
@@ -114,10 +114,44 @@ public class Practice {
         }
     }
 
-    //Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeroes entered.
-    //Two numbers are entered by the user, x and n. Write a function to find the value of one number raised to the power of another, i.e., x^n.
+    //Two numbers are entered by the user, x and pow. Write a function to find the value of one number raised to the power of another, i.e., x^n1.
+    public static int calcPower(int x, int pow) {
+        int result = 1;
+        for(int i=1; i<=pow ; i++) {
+            result *= x;
+        }
+        return result;
+    }
+
+    //Write a program to print Fibonacci Series of n terms where no of terms is input by the user. In Fibonacci Series, a numnber is the sum of the previous 2 numbers that came before it.
+    public static void fibonacci(int terms) {
+        int a = 0, b = 1;
+        //terms = 7;
+        for(int i=1; i<=terms; i++) {
+            System.out.print(a+" ");//0 1 1 2 3 5 8
+            int temp = a+b; //temp = 1 2 3 5 8 13
+            a = b; //a = 1 1 2 3 5 8
+            b = temp; //b = 1 2 3 5 8 13
+        }
+    }
+
+    //Write a function that calculates the Greatest Common Divisor of 2 numbers.
+    public static int gcd(int n1, int n2) {
+        while(n1 != n2) {
+            if(n1>n2) {
+                n1 = n1-n2;
+            }else {
+                n2 = n2-n1;
+            }
+        }
+        return n2;
+    }
+
+
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
+
+        //1
         System.out.print("Enter any name : ");
         String name = sc.nextLine();
         printName(name);
@@ -158,5 +192,45 @@ public class Practice {
         int age = sc.nextInt();
         System.out.println("Is the person with age "+age+" is eligible to vote? :- "+canVoteOrNot(age));
         
+        //Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeroes entered.
+        
+        int positive = 0;
+        int negative = 0;
+        int zeroes = 0;
+        char choice;
+
+        do{
+            System.out.print("Enter the number : ");
+            int num = sc.nextInt();
+            if(num>0) {
+                positive++;
+            }else if(num<0) {
+                negative++;
+            }else {
+                zeroes++;
+            }
+            System.out.println("Do you want to continue y/n?");
+            choice = sc.next().charAt(0);
+        }while(choice == 'y');
+
+        System.out.println("Postive : "+positive);
+        System.out.println("Negative : "+negative);
+        System.out.println("Zeroes : "+zeroes);
+
+        System.out.print("Enter the base number : ");
+        int x = sc.nextInt();
+        System.out.print("Enter power : ");
+        int pow = sc.nextInt();
+        System.out.println("Result of "+x+"^"+pow+" = "+calcPower(x, pow));
+
+        System.out.print("Enter the number of terms : ");
+        int terms = sc.nextInt();
+        fibonacci(terms);
+
+        System.out.print("\nEnter two numbers to calculate their GCD and LCM : ");
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        System.out.println("GCD ("+n1+","+n2+") = "+gcd(n1, n2));
+        System.out.println("LCM ("+n1+","+n2+") = "+(n1*n2)/gcd(n1, n2)); //calculated LCM
     }
 }
