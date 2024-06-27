@@ -39,5 +39,7 @@ public class Stringbuilder {
         System.out.print("\nEnter a string : ");
         sb1.append(sc.next());
         System.out.print("String from stringbuilder : "+sb1.toString());
+
+        sc.close();
     }
 }

@@ -53,6 +53,8 @@ public class Practice {
             sb.setCharAt(front,backChar);
             sb.setCharAt(back, frontChar);
         }
-        System.out.println("Reversed string : "+sb);    
+        System.out.println("Reversed string : "+sb);
+        
+        sc.close();
     }
 }

@@ -111,5 +111,7 @@ public class Fundamentals {
         System.out.print("Enter your roll number: ");
         int roll = sc.nextInt();
         System.out.println(roll);
+
+        sc.close();
     }
 }

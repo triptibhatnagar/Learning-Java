@@ -201,5 +201,7 @@ public class AdvPattern {
             }
             System.out.println();
         }
+        
+        sc.close();
     }
 }

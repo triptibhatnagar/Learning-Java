@@ -1,4 +1,5 @@
 package Day10;
+import java.util.HashSet;
 
 public class AdvancedRec {
     public static void main(String[] args) {
@@ -21,6 +22,20 @@ public class AdvancedRec {
 
         //5. Move all 'x' to the end of the string.
         moveAllX("axbcxxd", "", 0, 0);
+
+        //6. Remove duplicates in a string.
+        String original = "abbccda";
+        removeDuplicates(original, 0, "");
+
+        //7. Print all the subsequences of the string.
+        subsequences("abc", 0, "");
+
+        //8. Print all the unique subsequences of the string.
+        HashSet <String> set = new HashSet<>();
+        uniqueSubsequences("aaa", 0, "", set);
+
+        //9. Print Keypad combination.
+        keypadCombo("23", 0, "");
     }
 
     //Tower Of Hanoi (Time Complexity : O(2^n-1) ~ O(2^n))
@@ -96,5 +111,76 @@ public class AdvancedRec {
             newStr += currChar;
         }
         moveAllX(str, newStr, idx+1, count);
+    }
+
+    //Remove duplicates in a string.  "abbccda"  (Time Complexity : O(n))
+    public static boolean map[] = new boolean[26];
+    public static void removeDuplicates(String original, int idx, String newString) {
+        if (idx == original.length()) {
+            System.out.println(newString);
+            return;
+        }
+
+        char currChar = original.charAt(idx);
+       
+        if(map[currChar - 'a'] == true) {
+            //duplicate exist
+            removeDuplicates(original, idx+1, newString);
+        }else {
+            //no duplicate
+            map[currChar - 'a'] = true;
+            newString += currChar;
+            removeDuplicates(original, idx+1, newString);
+        }
+    }
+
+    //Print all the subsequences of the string. "abc" (Time Complexity : O(2^n))
+    public static void subsequences(String str, int idx, String combination) {
+        if(idx == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        //currChar included
+        subsequences(str, idx+1, combination+currChar);
+
+        //currChar not included
+        subsequences(str, idx+1, combination);
+    }  
+
+    //Print all the unique subsequences of the string. "aaa" (Time Complexity : O(2^n))
+    public static void uniqueSubsequences(String str, int idx, String combination, HashSet <String> set) {
+        if(idx == str.length()) {
+            if(set.contains(combination)) {
+                return;
+            }else {
+                System.out.println(combination);
+                set.add(combination);
+                return;
+            }
+        }
+
+        char currChar = str.charAt(idx); 
+        //currChar included
+        uniqueSubsequences(str, idx+1, combination+currChar,set);
+
+        //currChar not included
+        uniqueSubsequences(str, idx+1, combination,set);
+    }
+
+    //Print Keypad combination.
+    public static String keypad[] = {".", "abc", "def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+    public static void keypadCombo(String str, int idx, String combination) {
+        if(idx == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        String mapping = keypad[currChar - '0'];
+
+        for(int i=0; i < mapping.length(); i++) {
+            keypadCombo(str, idx+1, combination+mapping.charAt(i));
+        }
     }
 }

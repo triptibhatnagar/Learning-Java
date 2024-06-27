@@ -16,7 +16,7 @@ public class Array {
         arr[2] = 9;
 
         // b)Creating an Array (method2) -
-        int arr2[] = {2,4,9};
+        // int arr2[] = {2,4,9};
 
         // c)Taking an array as an input and printing its elements
 
@@ -41,5 +41,7 @@ public class Array {
                 System.out.println("Element x not found");
             }
         }
+
+        sc.close();
     }
 }

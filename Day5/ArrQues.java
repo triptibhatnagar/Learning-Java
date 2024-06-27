@@ -51,5 +51,7 @@ public class ArrQues {
         }else {
             System.out.println("Array is not sorted in ascending");
         }
+
+        sc.close();
     }
 }

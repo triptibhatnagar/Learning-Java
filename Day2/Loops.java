@@ -131,5 +131,6 @@ public class Loops {
             choice = sc.nextInt();
         }while(choice == 1);
           
+        sc.close();
     }
 }

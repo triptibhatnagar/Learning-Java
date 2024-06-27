@@ -26,6 +26,8 @@ public class AdvBitQues {
         System.out.print("Enter the decimal number : ");
         int decimal = sc.nextInt();
         System.out.println(decimal+" in binary : "+decimalToBinary(decimal));
+
+        sc.close();
     }
 
 

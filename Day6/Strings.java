@@ -89,5 +89,7 @@ public class Strings {
         int num = 1234;
         String numToStr = Integer.toString(num);
         System.out.println("Int to string : "+numToStr);
+
+        sc.close();
     }
 }

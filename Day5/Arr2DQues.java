@@ -59,5 +59,7 @@ public class Arr2DQues {
             }
             colStart++;
         }
+
+        sc.close();
     }
 }

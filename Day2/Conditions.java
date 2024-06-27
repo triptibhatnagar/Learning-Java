@@ -65,7 +65,7 @@ public class Conditions {
 
 
         //If 3 is a odd number, print "Bazinga"
-        if(3%2 == 1) 
+        if(3%2 != 0) 
             System.out.println("Bazinga");
         //single statement can be executed without {}
 
@@ -107,19 +107,19 @@ public class Conditions {
 
         switch(op) {
             case 1 :
-            System.out.println(a+b);
+            System.out.println(x+y);
             break;
             case 2 :
-            System.out.println(a-b);
+            System.out.println(x-y);
             break;
             case 3 :
-            System.out.println(a*b);
+            System.out.println(x*y);
             break;
             case 4 :
-            System.out.println(a/b);
+            System.out.println(x/y);
             break;
             case 5 :
-            System.out.println(a%b);
+            System.out.println(x%y);
             break;
             default: 
             System.out.println("Invalid Operator");
@@ -201,5 +201,7 @@ public class Conditions {
             default :
             System.out.println("Error 404..");
         }
+
+        sc.close();
     }
 }

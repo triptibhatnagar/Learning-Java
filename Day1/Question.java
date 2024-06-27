@@ -24,6 +24,16 @@ public class Question {
         char sign = '$';
         boolean isPrime = false;
 
+        System.out.println("Try to declare meaningful variables of each type :- ");
+        System.out.println("byte : "+marks);
+        System.out.println("short : "+amount);
+        System.out.println("int : "+x);
+        System.out.println("long : "+year);
+        System.out.println("double : "+price);
+        System.out.println("float : "+coin);
+        System.out.println("char : "+sign);
+        System.out.println("boolean : "+isPrime);
+
         //WAP that prints the table of a number that is input by the user.
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
@@ -48,5 +58,7 @@ public class Question {
 
         System.out.print("The radius is : "+r+"\n");
         System.out.print("Perimeter: "+perimeter+"\n"+"Area: "+area);
+
+        sc.close();
     }
 }
